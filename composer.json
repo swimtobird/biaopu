@@ -1,0 +1,28 @@
+{
+    "name": "swimtobird/biaopu",
+    "authors": [
+        {
+            "name": "swimtobird",
+            "email": "swimtobird@gmail.com"
+        }
+    ],
+    "require": {
+      "guzzlehttp/guzzle": "~6.5",
+      "illuminate/support": "^7.30",
+        "nesbot/carbon": "^2.54",
+        "webgeeker/validation": "^0.5.3"
+    },
+  "autoload": {
+    "psr-4": {
+      "Swimtobird\\BiaoPu\\": "src/"
+    }
+  },
+  "require-dev": {
+    "phpunit/phpunit": "~5.0"
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "Swimtobird\\BiaoPu\\Tests\\": "tests"
+    }
+  }
+}
