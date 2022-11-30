@@ -26,6 +26,11 @@ class Gateway
     protected $config;
 
     /**
+     * @var int
+     */
+    protected $timeout = 5;
+
+    /**
      * @var Client
      */
     protected $client;
@@ -46,6 +51,24 @@ class Gateway
     public function setEnv(bool $is_dev)
     {
         $this->is_dev = $is_dev;
+
+        return $this;
+    }
+
+    public function getTimeOut()
+    {
+        return $this->timeout;
+    }
+
+    /**
+     * @param int $timeout
+     * @return $this
+     */
+    public function setTimeOut(int $timeout)
+    {
+        $this->timeout = $timeout;
+
+        return $this;
     }
 
     /**
@@ -114,7 +137,8 @@ class Gateway
          * @var ResponseInterface $response
          */
         $response = $this->client->post($this->getUrl() , [
-            'json' => $request_data
+            'json' => $request_data,
+            'timeout' => $this->getTimeOut()
         ]);
 
         $result = json_decode($response->getBody(),true);
